@@ -33,7 +33,7 @@ No build step needed — just open the file:
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/habit-tracker.git
+git clone https://github.com/07-17-27/Habit-Tracker.git
 cd habit-tracker
 
 # Open in browser
@@ -48,7 +48,7 @@ Or use VS Code's **Live Server** extension for hot reload.
 
 1. Push to GitHub
 2. Go to **Settings → Pages → Source: main branch → Save**
-3. Your app is live at `https://YOUR_USERNAME.github.io/habit-tracker`
+3. Your app is live at `https://github.com/07-17-27/Habit-Tracker`
 
 ## 🛠 Tech Stack
 
