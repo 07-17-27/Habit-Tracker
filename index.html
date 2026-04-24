@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habit Tracker</title>
+
+  <!-- ── PWA Meta Tags ── -->
+  <meta name="description" content="Track your daily habits, build streaks, and stay consistent." />
+  <meta name="theme-color" content="#6c63ff" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Habits" />
+
+  <!-- ── PWA Manifest ── -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- ── Icons ── -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app-wrapper">
+
+    <!-- ── Header ── -->
+    <header class="app-header">
+      <div class="app-title">
+        <span class="app-title-dot"></span>
+        Habit Tracker
+      </div>
+      <div class="header-actions">
+        <button class="btn-icon" id="btn-dark" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+        <button class="btn-icon" id="btn-reset" title="Reset current habit" aria-label="Reset habit">↺</button>
+      </div>
+    </header>
+
+    <!-- ── Habit Selector Bar ── -->
+    <div class="habit-bar" id="habit-bar"></div>
+
+    <!-- ── Statistics ── -->
+    <div class="stats-row">
+      <div class="stat-card accent">
+        <div class="stat-label">Completed</div>
+        <div class="stat-value" id="stat-total">0<span>days</span></div>
+      </div>
+      <div class="stat-card success">
+        <div class="stat-label">Current Streak</div>
+        <div class="stat-value" id="stat-streak">0<span>days</span></div>
+      </div>
+      <div class="stat-card warning">
+        <div class="stat-label">Best Streak</div>
+        <div class="stat-value" id="stat-best">0<span>days</span></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">This Month</div>
+        <div class="stat-value" id="stat-month">0<span>%</span></div>
+      </div>
+    </div>
+
+    <!-- ── Progress Bar ── -->
+    <div class="progress-wrap">
+      <div class="progress-header">
+        <span class="progress-label" id="progress-label">Monthly completion</span>
+        <span class="progress-pct" id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- ── Calendar ── -->
+    <div class="calendar-card">
+      <div class="cal-nav">
+        <button class="cal-nav-btn" id="btn-prev" aria-label="Previous month">&#8249;</button>
+        <div class="cal-month-title" id="cal-title"></div>
+        <button class="cal-nav-btn" id="btn-next" aria-label="Next month">&#8250;</button>
+      </div>
+      <div class="cal-weekdays">
+        <div class="cal-weekday">Sun</div>
+        <div class="cal-weekday">Mon</div>
+        <div class="cal-weekday">Tue</div>
+        <div class="cal-weekday">Wed</div>
+        <div class="cal-weekday">Thu</div>
+        <div class="cal-weekday">Fri</div>
+        <div class="cal-weekday">Sat</div>
+      </div>
+      <div class="cal-grid" id="cal-grid"></div>
+    </div>
+
+  </div><!-- /.app-wrapper -->
+
+  <!-- ── Add Habit Modal ── -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <h3 id="modal-title">New Habit</h3>
+      <div class="emoji-row" id="emoji-row"></div>
+      <input
+        type="text"
+        id="habit-name-input"
+        placeholder="e.g. Read, Meditate, Exercise"
+        maxlength="24"
+        autocomplete="off"
+      />
+      <div class="modal-actions">
+        <button class="btn btn-ghost"   id="modal-cancel">Cancel</button>
+        <button class="btn btn-primary" id="modal-save">Add Habit</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+  <!-- ── Service Worker Registration ── -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register('/sw.js')
+          .then(reg => console.log('[PWA] Service worker registered:', reg.scope))
+          .catch(err => console.warn('[PWA] Service worker failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>
