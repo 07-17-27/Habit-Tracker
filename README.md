@@ -2,9 +2,6 @@
 
 A clean, modern, production-quality habit tracking web app built with **vanilla HTML, CSS, and JavaScript** — no frameworks, no dependencies.
 
-![Habit Tracker Preview](https://img.shields.io/badge/HTML-CSS-JS-brightgreen?style=flat-square)
-![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
-
 ## ✨ Features
 
 - **Monthly Calendar** — Full 7-column grid, auto-generated per month/year
