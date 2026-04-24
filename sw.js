@@ -3,7 +3,7 @@
    Fixed for GitHub Pages + proper caching
 ============================================================ */
 
-const CACHE_NAME = 'habit-tracker-v2';
+const CACHE_NAME = 'habit-tracker-v3';
 
 /** All files to pre-cache on install */
 const ASSETS_TO_CACHE = [
