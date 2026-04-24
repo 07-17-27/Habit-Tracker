@@ -8,14 +8,15 @@ const CACHE_NAME    = 'habit-tracker-v1';
 const CACHE_VERSION = 1;
 
 /** All files to pre-cache on install */
+
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/app.js',
-  '/manifest.json',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
+  '/Habit-Tracker/',
+  '/Habit-Tracker/index.html',
+  '/Habit-Tracker/style.css',
+  '/Habit-Tracker/app.js',
+  '/Habit-Tracker/manifest.json',
+  '/Habit-Tracker/icons/icon-192.png',
+  '/Habit-Tracker/icons/icon-512.png',
 ];
 
 /* ── Install ──────────────────────────────────────────────────
